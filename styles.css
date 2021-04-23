@@ -1,0 +1,230 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    cursor: none;
+    overflow: hidden;
+    font-family: 'Caveat', cursive;
+}
+
+                                        /* Border */
+
+.gradient{
+    margin-top: 6px;
+    margin-left: 6px;
+    position: relative;
+    width: 1354px;
+    height: 98% ;
+    background-color: rgba(145, 145, 145, 0);
+}
+
+.gradient:before{
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: -6px;
+    background: linear-gradient(50deg, #ff0000,#fb0094, #0000ff, #00ff00,#ffff00,
+    #ff0000,#fb0094,#0000ff, #00ff00,#ffff00, #ff0000, #ff4522ee, #34f61045);
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+    background-size: 400%;
+    z-index: -1;
+    animation: animate 2s linear infinite;
+}
+
+@keyframes animate{
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+                                        /* Cursor */
+
+.cursor{
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    border: solid 1px white;
+    position: absolute;
+    border-radius: 50%;
+    transition-duration: 50ms;
+    transition-timing-function: ease-out;
+    animation: cursorAnim .5s infinite alternate;
+    mix-blend-mode: difference;
+    pointer-events: none;
+}
+
+.cursor::after{
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: solid 8px gray;
+    position: absolute;
+    border-radius: 50%;
+    opacity: .5;
+    top: -8px;
+    left: -8px;
+    animation: cursorAnim2 .5s infinite alternate;
+}
+
+
+@keyframes cursorAnim {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(.7);
+    }
+}
+
+@keyframes cursorAnim2 {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(.4);
+    }
+}
+
+@keyframes cursorAnim3 {
+    
+    0%{
+        transform: scale(1);
+    }
+
+    50%{
+        transform: scale(3);
+    }
+
+    100%{
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.expand{
+    animation: cursorAnim3 .5s  forwards;
+    border: solid 1px red;
+}
+
+                                        /* Nav */
+
+
+nav > a > span {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.1s linear;
+    z-index: 100;
+}
+
+nav{
+    width: 100%;
+    display: inline-block;
+    padding: 1.5rem;
+    position: relative;
+}
+
+nav > a{
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: none;
+    margin: 10px;
+    float: right;
+    text-transform: capitalize;
+}
+
+nav > a:nth-child(1){
+    float: left;
+}
+
+nav > a:nth-child(2){
+    padding-right: 50px;
+}
+
+.home, 
+.contact,
+.about{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all 1s linear;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.hoverPhrase{
+    width: 450px;
+    border-radius: 10px;
+}
+
+.hoverPhrase:hover{
+    background-color: rgb(10, 10, 10);
+    border-right: solid 3px rgb(20, 20, 20);
+    border-bottom: solid 3px rgb(20, 20, 20);
+}
+
+.home{
+    clip-path: circle(0% at 0 0);
+    background-color: #000;
+    color: #fff;
+}
+
+
+.homeActive{
+    clip-path: circle(141.2% at 0 0);
+}
+
+.contact{
+    clip-path: circle(0% at 100% 0);
+    background-color: #fff;
+}
+
+.contactActive{
+    clip-path: circle(141.4% at 100% 0);
+}
+
+.about{
+    clip-path: circle(0% at 75% 0);
+    background-color: rgb(1, 1, 37);
+}
+
+.aboutActive{
+    clip-path: circle(124.6% at 75% 0);
+}
+
+/* span.square{
+    position: absolute;
+    position: none;
+    background-color: rgb(255, 255, 255);
+    animation: animateSquare 5s linear infinite;
+}
+
+@keyframes animateSquare {
+    
+    0%{
+        transform: scale(0) translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10%{
+        opacity: 1;
+    }
+
+    90%{
+        opacity: 1;
+    }
+
+    100%{
+        transform: scale(1) translateY(-500%) rotate(360deg);
+        opacity: 0;
+    }
+} */
